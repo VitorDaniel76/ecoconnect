@@ -65,8 +65,24 @@
                return null; 
             }
         }
+        private static function montarUsuario(array $dados): Usuario{
+            $usuario = new Usuario(
+                $dados['nome'],
+                $dados['email'],
+                "temp"
+            );
 
-        public function CarregarUsuario(int $id): ?Usuario {
+            $usuario->senha_hash = $dados['senha_hash'];
+            $usuario->telefone = $dados['telefone'];
+            $usuario->estado = $dados['estado'];
+            $usuario->foto_perfil = $dados['foto_perfil'];
+
+            $usuario->setId($dados['id_usuario']);
+
+            return $usuario;
+        }
+
+        public function carregarUsuarioId(int $id): ?Usuario {
             try{
                 $database = new Database();
                 $conn = $database->conectar();
@@ -82,17 +98,7 @@
                         return null;
                 }
 
-                $usuario = new Usuario(
-                    $dados['nome'],
-                    $dados['email'],
-                    "",
-                    $dados['telefone'],
-                    $dados['cidade'],
-                    $dados['estado'],
-                    $dados['foto_perfil']
-                );
-
-                $usuario->setId($dados['id_usuario']);
+                $usuario = self::montarUsuario($dados);
                 return $usuario;
             }catch(PDOException $e){
                 echo "Erro: " . $e->getMessage();
@@ -100,7 +106,31 @@
             }
         }
 
-        public function AtualizarUsuario(): bool{
+        public function buscarPorEmail(string $email): ?Usuario{
+            try{
+                $database = new Database();
+                $conn = $database->conectar();
+
+                $sql = "SELECT * FROM usuario WHERE email = ?";
+
+                $stmt = $conn->prepare($sql);
+                $stmt->execute([$email]);
+
+                $dados = $stmt->fetch(PDO::FETCH_ASSOC);
+                if (!$dados){
+                    return null;
+                }
+
+                $usuario = self::montarUsuario($dados);
+                return $usuario;
+
+            }catch(PDOException $e){
+                echo "Erro: " . $e->getMessage();
+                return null;
+            }
+        }
+
+        public function atualizarUsuario(): bool{
             try{
                 $database = new Database();
                 $conn = $database->conectar();
@@ -125,7 +155,7 @@
                 return false;
             }
         }
-        public function ExcluirUsuario(int $id): bool{
+        public function excluirUsuario(): bool{
             try{
                 $database = new Database();
                 $conn = $database->conectar();
@@ -134,7 +164,7 @@
 
                 $stmt = $conn->prepare($sql);
 
-                return $stmt->execute([$id]);
+                return $stmt->execute([$this->id]);
 
             }catch(PDOException $e){
                 echo "ERRO: " . $e->getMessage();
