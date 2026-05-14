@@ -1,7 +1,6 @@
 <?php 
 
-use LoginController;
-    require_once __DIR__ . '/../app/controllers/LoginController.php';
+    require_once __DIR__ . '../app/controllers/LoginController.php';
 
     $route = $_GET['route'] ?? null;
 

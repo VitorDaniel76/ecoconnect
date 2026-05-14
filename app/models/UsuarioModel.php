@@ -1,9 +1,6 @@
 <?php
-
-use Database;
-use Usuario;
     require_once __DIR__ . '/../../config/Database.php';
-    require_once __DIR__ . '/Usuario.php';
+    require_once __DIR__ . '../../entities/Usuario.php';
 
     class UsuarioModel{
 
