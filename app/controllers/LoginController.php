@@ -1,4 +1,6 @@
 <?php 
+
+use UsuarioModel;
     require_once __DIR__ . '/../models/Usuario.php';
 
     class LoginController {
@@ -12,7 +14,7 @@
                 return;
             }
 
-            $usuarioModel = new Usuario("temp", "temp", "temp");
+            $usuarioModel = new UsuarioModel();
             $usuario = $usuarioModel->buscarPorEmail($email);
 
             if (!$usuario || !password_verify($senha, $usuario->getSenhaHash())){
