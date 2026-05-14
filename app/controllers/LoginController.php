@@ -12,7 +12,7 @@
                 return;
             }
 
-            $usuarioModel = new Usuario("", "", "");
+            $usuarioModel = new Usuario("temp", "temp", "temp");
             $usuario = $usuarioModel->buscarPorEmail($email);
 
             if (!$usuario || !password_verify($senha, $usuario->getSenhaHash())){
