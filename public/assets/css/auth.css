@@ -1,0 +1,40 @@
+.auth-container{
+    min-height: 100vh;
+
+    background-color: var(--clr-Background);
+}
+
+.auth-banner{
+    min-height: 300px;
+    height: auto;
+    flex-direction: column;
+    background-image: url('../images/FundoInicial-mobile.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding-top: 2rem;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.auth-banner picture{
+    display: none;
+}
+
+.slogan{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.slogan img{
+    width: 3rem;
+}
+
+
+
+
+

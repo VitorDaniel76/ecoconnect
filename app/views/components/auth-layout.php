@@ -3,27 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../public/assets/css/global.css">
-    <link rel="stylesheet" href="../../../public/assets/css/auth.css">
+    <link rel="stylesheet" href="/ecoconnect/public/assets/css/global.css">
+    <link rel="stylesheet" href="/ecoconnect/public/assets/css/auth.css">
     <title>Auth</title>
 </head>
 <body>
     <main class="auth-container">
         <div class="auth-banner">
-            <picture>
-                <source
-                    media="(max-width:767px)"
-                    srcset="../../../public/assets/images/FundoInicial-mobile.png">
-                <img src="../../../public/assets/images/FundoInicial-desktop.png">
-            </picture>
             <div class="slogan">
-                <img src="../../../public/assets/images/Reciclar-icone.png" alt="">
+                <img src="/ecoconnect/public/assets/images/Reciclar-icone.png" alt="Icone_reciclar">
                 <h1>ECOCONNECT</h1>
                 <p>Conectando pessoas, transformando o futuro.</p>
             </div>
+            <picture>
+                <img src="/ecoconnect/public/assets/images/FundoInicial-desktop.png">
+            </picture>
         </div>
+        <?php require __DIR__ . '/../pages/Login.php'; ?>
 
-        <div class="auth-form"> 
-
-        </div>
     </main>
+</body>
+</html>
+    

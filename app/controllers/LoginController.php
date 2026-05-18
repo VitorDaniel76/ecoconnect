@@ -1,9 +1,18 @@
 <?php 
 
-    require_once __DIR__ . '../../models/UsuarioModel.php';
+    require_once __DIR__ . '/../models/UsuarioModel.php';
 
     class LoginController {
+        public function telaLogin(){
+            session_start();
+                if(isset($_SESSION['id_usuario'])){
+                    header("Location: index.php?route=home");
+                    exit;
+                }
 
+                require __DIR__ . '/../views/components/auth-layout.php';
+            
+        }
         public function login(){
             $email = $_POST['email'] ?? null;
             $senha = $_POST['senha'] ?? null;
@@ -24,8 +33,16 @@
             session_start();
             $_SESSION['id_usuario'] = $usuario->getId();
 
-            header("Location: ../views/home.php");
+            header("Location: index.php?route=home");
 
+        }
+
+        public function logout(): void{
+            session_start();
+            session_destroy();
+
+            header("Location: index.php?route=index");
+            exit;
         }
     }
 ?>
