@@ -6,11 +6,12 @@
 
 .auth-banner{
     min-height: 300px;
-    height: auto;
+    height: 50vh;
     flex-direction: column;
-    background-image: url('../images/FundoInicial-mobile.png');
+    background-image: url('/ecoconnect/public/assets/images/FundoInicial-mobile.png');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: right;
 
     padding-top: 2rem;
 
