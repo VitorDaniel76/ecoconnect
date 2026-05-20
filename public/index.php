@@ -6,7 +6,6 @@
 
     $controller = new LoginController();
 
-
     switch ($route) {
 
     case 'telaLogin':
