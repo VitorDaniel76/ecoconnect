@@ -48,6 +48,17 @@
     width: 2rem;
 }
 
+.email-erro{
+    color: red;
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+}
+.email-erro.show{
+    opacity: 1;
+    visibility: visible;
+}
 
 .password-group{
     display: flex;
@@ -69,7 +80,7 @@
 .password-icon input{
     width: 100%;
     padding-left: 3rem;
-    padding-right: 3rem;
+    padding-right: 0.5rem;
     height: 2.5rem;
     border-radius: 0.6rem;
 }
@@ -83,11 +94,25 @@
 }
 
 .show-password-icon{
+    display: none;
     position: absolute;
     right: 0.8rem;
     top: 50%;
     transform: translateY(-50%);
     width: 2rem;
+}
+
+.password-erro{
+    color: red;
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+}
+
+.password-erro.show{
+    opacity: 1;
+    visibility: visible;
 }
 
 .auth-form button{
@@ -120,8 +145,7 @@
         justify-content: center;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
     }
-    .auth-form{
-    }
+
     .auth-redirect{
         flex-direction: row;
         gap: 0.6rem;

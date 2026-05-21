@@ -1,7 +1,7 @@
 <?php require __DIR__ . '/../components/auth-layout.php'?>
 
 <section class="auth-form-section">
-    <form class="auth-form" action="/ecoconnect/public/index.php?route=login" method="post">
+    <form class="auth-form" action="/ecoconnect/public/index.php?route=login" method="post" novalidate>
 
     <div class="welcome">
         <h2>Bem-vindo!</h2>
@@ -13,6 +13,7 @@
                 <img src="/ecoconnect/public/assets/images/user-icon.png" alt="">
                 <input placeholder="Digite seu email" type="email" name="email">
             </div>
+            <label class="email-erro"></label>
 
         </div>
 
@@ -23,6 +24,7 @@
                 <img class="show-password-icon" src="/ecoconnect/public/assets/images/show-password.png" alt="">
                 <input placeholder="Digite sua senha" type="password" name="senha">
             </div>
+            <label class="password-erro"></label>
 
         </div>
 
