@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    width: 90%;
+    width: 100%;
     padding-top: 2rem;
 }
 
@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 90%;
     gap: 2rem;
 }
 
@@ -106,5 +106,34 @@
 }
 
 .auth-redirect a{
+    font-weight: var(--fw-sbold);
     color: var(--clr-Green-Primary);
+}
+
+.welcome{
+    display: none;
+}
+
+@media (min-width: 768px){
+    .auth-form-section{
+        min-height: 100%;
+        justify-content: center;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
+    }
+    .auth-form{
+    }
+    .auth-redirect{
+        flex-direction: row;
+        gap: 0.6rem;
+    }
+    .welcome{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .welcome h2{
+        font-size: 2rem;
+        font-weight: var(--fw-sbold);
+        color: var(--clr-Green-Primary);
+    }
 }

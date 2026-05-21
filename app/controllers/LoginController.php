@@ -10,7 +10,7 @@
                     exit;
                 }
 
-                require __DIR__ . '/../views/components/auth-layout.php';
+                require __DIR__ . '/../views/pages/Login.php';
             
         }
         public function login(){
@@ -34,6 +34,7 @@
             $_SESSION['id_usuario'] = $usuario->getId();
 
             header("Location: index.php?route=home");
+            exit;
 
         }
 

@@ -4,19 +4,20 @@
 
     $route = $_GET['route'] ?? null;
 
-    $controller = new LoginController();
-
     switch ($route) {
 
     case 'telaLogin':
+        $controller = new LoginController();
         $controller->telaLogin();
         break;
 
     case 'login':
+        $controller = new LoginController();
         $controller->login();
         break;
     
     case 'logout':
+        $controller = new LoginController();
         $controller->logout();
         break;
 

@@ -6,7 +6,7 @@
 }
 .auth-header{
     padding-top: 4rem;
-    width: 90%;
+    width: 100%;
 }
 
 .auth-header picture{
@@ -42,6 +42,30 @@
     .auth-footer{
         display: none;
     }
+}
+
+@media (min-width: 768px){
+    .auth-container{
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+
+    }
+    .auth-header{
+        min-height: 100%;
+        background-image: url('/ecoconnect/public/assets/images/FundoInicial-desktop.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05);
+    }
+    .slogan{
+        padding-top: 5rem;
+    }
+    .auth-footer{
+        display: none;
+    } 
+
 }
 
 
