@@ -3,11 +3,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
 }
-
 .auth-header{
-    padding-top: 2rem;
+    padding-top: 4rem;
     width: 90%;
 }
 
@@ -22,14 +20,28 @@
 }
 
 .slogan img{
-    width: 3rem;
+    width: 6rem;
+}
+.slogan h1{
+    font-weight: var(--fw-sbold);
+    font-size: 2.5rem;
+    color: var(--clr-Green-Primary);
 }
 
-.auth-footer img{
+.auth-footer{
+    margin-top: auto;
     width: 100%;
-    min-height: 240px;
-    max-height: 240px;
-    display: block;
+    min-height: 10rem;
+    background-image: url('/ecoconnect/public/assets/images/FundoInicial-mobile.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: cover;
+}
+
+@media (max-height: 760px){
+    .auth-footer{
+        display: none;
+    }
 }
 
 

@@ -4,6 +4,7 @@
     align-items: center;
     gap: 2rem;
     width: 90%;
+    padding-top: 2rem;
 }
 
 .auth-form{
@@ -11,39 +12,99 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .email-group{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
 }
 
-.email-group input{
-    width: 90%;
-    height: 2.5rem;
+.email-group label{
+    font-size: 0.8rem;
+    font-weight: var(--fw-sbold);
 }
+
+.email-icon{
+    position: relative;
+    width: 100%;
+}
+
+.email-icon input{
+    width: 100%;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    height: 2.5rem;
+    border-radius: 0.6rem;
+}
+
+.email-icon img{
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
+}
+
 
 .password-group{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
 }
 
-.password-group input{
-    width: 90%;
+.password-group label{
+    font-size: 0.8rem;
+    font-weight: var(--fw-sbold);
+}
+
+.password-icon{
+    position: relative;
+    width: 100%;
+}
+
+.password-icon input{
+    width: 100%;
+    padding-left: 3rem;
+    padding-right: 3rem;
     height: 2.5rem;
+    border-radius: 0.6rem;
+}
+
+.cadeado-icon{
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.8rem;
+}
+
+.show-password-icon{
+    position: absolute;
+    right: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
 }
 
 .auth-form button{
     width: 80%;
+    color: var(--clr-White);
+    font-size: 2rem;
+    background-color: var(--clr-Green-Primary);
+    border-color: var(--clr-Green-Primary);
+    border-radius: 0.6rem;
 }
 
 .auth-redirect{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.auth-redirect a{
+    color: var(--clr-Green-Primary);
 }

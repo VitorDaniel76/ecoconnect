@@ -4,12 +4,21 @@
     <form class="auth-form" action="index.php?route=login" method="post">
         <div class="email-group">
             <label>Email</label>
-            <input type="email" name="email">
+            <div class="email-icon">
+                <img src="/ecoconnect/public/assets/images/user-icon.png" alt="">
+                <input type="email" name="email">
+            </div>
+
         </div>
 
         <div class="password-group">
             <label>Senha</label>
-            <input type="password" name="senha">
+            <div class="password-icon">
+                <img class="cadeado-icon" src="/ecoconnect/public/assets/images/cadeado-icon.png" alt="">
+                <img class="show-password-icon" src="/ecoconnect/public/assets/images/show-password.png" alt="">
+                <input type="password" name="senha">
+            </div>
+
         </div>
 
         <button type="submit"> Entrar</button>
