@@ -14,14 +14,18 @@
     public function inserirUsuario(Usuario $usuario): ?int {
         try{
 
-            $sql = "INSERT INTO usuario (nome, email, senha_hash) VALUES (?, ?, ?)";
+            $sql = "INSERT INTO usuario (nome, email, senha_hash, telefone, cidade, estado, foto_perfil) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
             $stmt = $this->conn->prepare($sql);
 
             $stmt->execute([
                 $usuario->getNome(),
                 $usuario->getEmail(),
-                $usuario->getSenhaHash()
+                $usuario->getSenhaHash(),
+                $usuario->getTelefone(),
+                $usuario->getCidade(),
+                $usuario->getEstado(),
+                $usuario->getFotoPerfil()
             ]);
 
                 return (int) $this->conn->lastInsertId();

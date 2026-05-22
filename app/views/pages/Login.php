@@ -1,3 +1,7 @@
+<?php $title = 'Login';
+$pageCss = 'Login';
+?>
+
 <?php require __DIR__ . '/../components/auth-layout.php'?>
 
 <section class="auth-form-section">
@@ -33,7 +37,7 @@
 
     <div class="auth-redirect">
         <p>Não tem uma conta?</p>
-        <a href="/ecoconnect/app/views/pages/Cadastro.php">Criar conta</a>
+        <a href="index.php?route=telaCadastro">Criar conta</a>
     </div>
 </section>
 

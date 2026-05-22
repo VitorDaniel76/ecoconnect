@@ -17,7 +17,7 @@
         public function __construct(
             string $nome,
             string $email,
-            string $senha,
+            string $senha_hash,
             ?string $telefone = null,
             ?string $cidade = null,
             ?string $estado = null,
@@ -26,12 +26,12 @@
             $this->nome = $nome;
             $this->email = $email;
 
-            $this->senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+            $this->senha_hash = $senha_hash;
             
             $this->telefone = $telefone;
-            $this->foto_perfil =$foto_perfil;
             $this->cidade = $cidade;
             $this->estado = $estado;
+            $this->foto_perfil = $foto_perfil;
 
             $this->data_cadastro = date('Y-m-d H:i:s');
         }
@@ -41,15 +41,12 @@
         $usuario = new Usuario(
             $dados['nome'],
             $dados['email'],
-            "temp" //
+            $dados['senha_hash'],
+            $dados['telefone'] ?? null,
+            $dados['cidade'] ?? null,
+            $dados['estado'] ?? null,
+            $dados['foto_perfil'] ?? null
         );
-
-        $usuario->senha_hash = $dados['senha_hash'];
-
-        $usuario->telefone = $dados['telefone'];
-        $usuario->cidade = $dados['cidade'];
-        $usuario->estado = $dados['estado'];
-        $usuario->foto_perfil = $dados['foto_perfil'];
 
         $usuario->id = $dados['id_usuario'];
         $usuario->data_cadastro = $dados['data_cadastro'];

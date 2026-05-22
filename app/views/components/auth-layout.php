@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/ecoconnect/public/assets/css/global.css">
     <link rel="stylesheet" href="/ecoconnect/public/assets/css/auth.css">
-    <link rel="stylesheet" href="/ecoconnect/public/assets/css/login.css">
-    <title>Auth</title>
+    <?php  if (isset($pageCss)):?>
+        <link rel="stylesheet" href="/ecoconnect/public/assets/css/<?= $pageCss?>.css">
+
+    <?php endif;?>
+
+    <title><?= $title ?? 'EcoConnect' ?></title>
 </head>
 <body>
     <main class="auth-container">

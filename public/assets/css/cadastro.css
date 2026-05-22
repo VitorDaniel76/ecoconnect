@@ -15,6 +15,40 @@
     gap: 1rem;
 }
 
+.nome-group{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.nome-group label{
+    padding-bottom: 0.2rem;
+    font-size: 0.8rem;
+    font-weight: var(--fw-sbold);
+}
+
+.nome-icon{
+    position: relative;
+    width: 100%;
+}
+
+.nome-icon input{
+    width: 100%;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    height: 2.5rem;
+    border-radius: 0.6rem;
+}
+
+.nome-icon img{
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
+}
+
 .email-group{
     display: flex;
     flex-direction: column;
@@ -66,9 +100,16 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
+    gap: 1rem;
 }
 
-.password-group label{
+.password{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+.password label{
     padding-bottom: 0.2rem;
     font-size: 0.8rem;
     font-weight: var(--fw-sbold);
@@ -104,6 +145,32 @@
     width: 2rem;
 }
 
+.confirm-password{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.confirm-password label{
+    padding-bottom: 0.2rem;
+    font-size: 0.8rem;
+    font-weight: var(--fw-sbold);
+}
+
+.confirm-password-icon{
+    position: relative;
+    width: 100%;
+}
+
+.confirm-password-icon input{
+    width: 100%;
+    padding-left: 3rem;
+    padding-right: 0.5rem;
+    height: 2.5rem;
+    border-radius: 0.6rem;
+}
+
 .password-erro{
     color: red;
     opacity: 0;
@@ -137,7 +204,7 @@
     color: var(--clr-Green-Primary);
 }
 
-.welcome{
+.criar-conta-mensagem{
     display: none;
 }
 
@@ -152,12 +219,12 @@
         flex-direction: row;
         gap: 0.6rem;
     }
-    .welcome{
+    .criar-conta-mensagem{
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    .welcome h2{
+    .criar-conta-mensagem h2{
         font-size: 2rem;
         font-weight: var(--fw-sbold);
         color: var(--clr-Green-Primary);
