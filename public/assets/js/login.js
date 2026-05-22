@@ -24,6 +24,7 @@ form.addEventListener('submit', (e) =>{
 
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
+    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
     let formularioValido = true;
 
@@ -32,8 +33,8 @@ form.addEventListener('submit', (e) =>{
 
         formularioValido = false;
 
-    }else if (!email.includes('@')){
-        mostrarErro(emailErro, 'Digite seu email');
+    }else if (!emailValido){
+        mostrarErro(emailErro, 'Email inválido');
 
         formularioValido = false;
     }

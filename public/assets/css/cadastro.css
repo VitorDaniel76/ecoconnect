@@ -1,3 +1,5 @@
+
+
 .auth-form-section{
     display: flex;
     flex-direction: column;
@@ -47,6 +49,18 @@
     top: 50%;
     transform: translateY(-50%);
     width: 2rem;
+}
+
+.nome-erro{
+    color: red;
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+}
+.nome-erro.show{
+    opacity: 1;
+    visibility: visible;
 }
 
 .email-group{
@@ -184,6 +198,17 @@
     visibility: visible;
 }
 
+.confirm-password-erro{
+    color: red;
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+}
+.confirm-password-erro.show{
+    opacity: 1;
+    visibility: visible;
+}
 .auth-form button{
     width: 80%;
     color: var(--clr-White);
@@ -206,6 +231,12 @@
 
 .criar-conta-mensagem{
     display: none;
+}
+
+@media (max-width: 768px){
+    .auth-header{
+    padding-top: 0.5rem;
+    }
 }
 
 @media (min-width: 768px){

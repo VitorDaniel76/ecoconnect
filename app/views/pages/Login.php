@@ -1,5 +1,6 @@
 <?php $title = 'Login';
 $pageCss = 'Login';
+$pageJs = 'login';
 ?>
 
 <?php require __DIR__ . '/../components/auth-layout.php'?>

@@ -9,9 +9,30 @@
         }
 
         public function cadastrar(){
-            $nome = $_POST['nome'];
-            $email = $_POST['email'];
-            $senha = $_POST['password'];
+            $nome = trim($_POST['nome'] ?? '');
+            $email = trim($_POST['email'] ?? '');
+            $senha = ($_POST['senha'] ?? '');
+            $confirmarSenha = $_POST['confirmar-senha'] ?? '';
+
+            // validações básicas 
+            if ($nome === ''){
+                return;
+            }
+
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                return;
+            }
+
+            if ($senha === '' || strlen($senha) <6 || strlen($senha) > 255){
+                return;
+            }
+
+            if ($confirmarSenha === ''){
+                return;
+            }
+            if ($senha !== $confirmarSenha){
+                return;
+            }
 
             $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 

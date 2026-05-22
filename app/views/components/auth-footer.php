@@ -1,6 +1,8 @@
 <section class="auth-footer">
 </section>
 </main>
-    <script src="/ecoconnect/public/assets/js/login.js"></script>
+    <?php if (isset($pageJs)): ?>
+        <script src="/ecoconnect/public/assets/js/<?= $pageJs ?>.js"></script>
+    <?php endif; ?>
 </body>
 </html>

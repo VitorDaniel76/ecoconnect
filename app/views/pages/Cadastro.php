@@ -1,6 +1,8 @@
 <?php $title = 'Cadastro';
 $pageCss = 'Cadastro';
+$pageJs = 'cadastro';
 ?>
+
 
 <?php require __DIR__ . '/../components/auth-layout.php'?>
 
@@ -18,6 +20,7 @@ $pageCss = 'Cadastro';
                 <img src="/ecoconnect/public/assets/images/user-icon.png" alt="">
                 <input placeholder="Digite seu nome" type="text" name="nome">
             </div>
+            <label class="nome-erro"></label>
         </div>
 
         <div class="email-group">
@@ -45,8 +48,9 @@ $pageCss = 'Cadastro';
                 <div class="confirm-password-icon">
                     <img class="cadeado-icon" src="/ecoconnect/public/assets/images/cadeado-icon.png" alt="">
                     <img class="show-password-icon" src="/ecoconnect/public/assets/images/show-password.png" alt="">
-                    <input placeholder="Confirme sua senha" type="password" name="confirmar_senha">
+                    <input placeholder="Confirme sua senha" type="password" name="confirmar-senha">
                 </div>
+                <label class="confirm-password-erro"></label>
             </div>
         </div>
 
