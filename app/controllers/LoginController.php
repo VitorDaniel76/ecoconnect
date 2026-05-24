@@ -6,7 +6,7 @@
         public function telaLogin(){
             session_start();
                 if(isset($_SESSION['id_usuario'])){
-                    header("Location: index.php?route=home");
+                    header("Location: " . BASE_URL . "/home");
                     exit;
                 }
 
@@ -33,7 +33,7 @@
             session_start();
             $_SESSION['id_usuario'] = $usuario->getId();
 
-            header("Location: index.php?route=home");
+            header("Location: " . BASE_URL . "/home");
             exit;
 
         }
@@ -42,7 +42,7 @@
             session_start();
             session_destroy();
 
-            header("Location: index.php?route=index");
+            header("Location: " . BASE_URL . "/telaLogin");
             exit;
         }
     }

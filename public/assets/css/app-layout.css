@@ -1,0 +1,12 @@
+.app-layout{
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    min-height: 100vh;
+}
+
+@media(max-width: 768px){
+    .app-layout{
+        display: flex;
+        flex-direction: column;
+    }
+}

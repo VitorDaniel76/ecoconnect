@@ -46,7 +46,7 @@
             $id = $model->inserirUsuario($usuario);
 
             if($id){
-                header("Location: index.php?route=telaLogin");
+                header("Location: " . BASE_URL . "/telaLogin");
                 exit;
             }
         }
