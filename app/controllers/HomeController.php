@@ -8,7 +8,11 @@
                 exit;
             }
 
-            require __DIR__ . '/../views/pages/Home.php';
+            $page = __DIR__ . '/../views/pages/Home.php';
+
+            $paginaAtual = 'home';
+
+            require __DIR__ . '/../views/layouts/app-layout.php';
         }
     }
 ?>

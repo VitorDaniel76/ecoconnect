@@ -1,9 +1,4 @@
-<?php $title = 'Login';
-$pageCss = 'login';
-$pageJs = 'login';
-?>
 
-<?php require __DIR__ . '/../layouts/auth-layout.php'?>
 
 <section class="auth-form-section">
     <form class="auth-form" action="<?= BASE_URL ?>/login" method="post" novalidate>
@@ -15,7 +10,7 @@ $pageJs = 'login';
         <div class="email-group">
             <label>Email</label>
             <div class="email-icon">
-                <img src="<?= BASE_URL ?>/assets/images/user-icon.png" alt="">
+                <img src="<?= BASE_URL ?>/assets/images/email-icon.png" alt="">
                 <input placeholder="Digite seu email" type="email" name="email">
             </div>
             <label class="email-erro"></label>
@@ -41,5 +36,3 @@ $pageJs = 'login';
         <a href="<?= BASE_URL ?>/telaCadastro">Criar conta</a>
     </div>
 </section>
-
-<?php require __DIR__ . '/../components/auth-footer.php'?>

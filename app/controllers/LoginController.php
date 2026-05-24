@@ -10,7 +10,12 @@
                     exit;
                 }
 
-                require __DIR__ . '/../views/pages/Login.php';
+                $title = 'Login';
+                $pageCss = 'login';
+                $pageJs = 'login';
+                $page = __DIR__ . '/../views/pages/Login.php';
+
+                require __DIR__ . '/../views/layouts/auth-layout.php';
             
         }
         public function login(){

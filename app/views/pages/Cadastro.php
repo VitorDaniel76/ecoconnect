@@ -1,10 +1,4 @@
-<?php $title = 'Cadastro';
-$pageCss = 'cadastro';
-$pageJs = 'cadastro';
-?>
 
-
-<?php require __DIR__ . '/../layouts/auth-layout.php'?>
 
 <section class="auth-form-section">
     <form class="auth-form" action="<?= BASE_URL ?>/cadastrar" method="post" novalidate>
@@ -26,7 +20,7 @@ $pageJs = 'cadastro';
         <div class="email-group">
             <label>Email</label>
             <div class="email-icon">
-                <img src="<?= BASE_URL ?>/assets/images/user-icon.png" alt="">
+                <img src="<?= BASE_URL ?>/assets/images/email-icon.png" alt="">
                 <input placeholder="Digite seu email" type="email" name="email">
             </div>
             <label class="email-erro"></label>
@@ -62,5 +56,3 @@ $pageJs = 'cadastro';
         <a href="<?= BASE_URL ?>/telaLogin">Entrar</a>
     </div>
 </section>
-
-<?php require __DIR__ . '/../components/auth-footer.php'?>

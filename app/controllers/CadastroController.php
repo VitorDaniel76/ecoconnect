@@ -5,7 +5,13 @@
     class CadastroController{
         
         public function telaCadastro(){
-            require __DIR__ . '/../views/pages/Cadastro.php';
+
+            $title = 'Cadastro';
+            $pageCss = 'cadastro';
+            $pageJs = 'cadastro';
+
+            $page = __DIR__ . '/../views/pages/Cadastro.php';
+            require __DIR__ . '/../views/layouts/auth-layout.php';
         }
 
         public function cadastrar(){
