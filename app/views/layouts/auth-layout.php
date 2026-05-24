@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/global.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/auth-layout.css">
-    <?php  if (isset($pageCss)):?>
+    <?php  if (!empty($pageCss)):?>
         <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/<?= $pageCss?>.css">
 
     <?php endif;?>
@@ -31,4 +31,15 @@
                 <img src="<?= BASE_URL ?>/assets/images/FundoInicial-desktop.png">
             </picture>
         </section>
+
+        <?php if (!empty($page)) require $page; ?>
+
+        <section class="auth-footer"></section>
+    </main>
+
+            <?php if (!empty($pageJs)): ?>
+                <script src="<?= BASE_URL ?>/assets/js/<?= $pageJs ?>.js"></script>
+            <?php endif; ?>
+</body>
+</html>
     

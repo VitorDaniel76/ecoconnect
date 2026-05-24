@@ -10,22 +10,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/ecoconnect/public/assets/css/global.css">
-    <link rel="stylesheet" href="/ecoconnect/public/assets/css/app-layout.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/global.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/app-layout.css">
     
-    <?php if($pageCss): ?>
-        <link rel="stylesheet" href="/ecoconnect/public/assets/css/<?= $pageCss ?>.css">
+    <?php if(!empty($pageCss)): ?>
+        <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/<?= $pageCss ?>.css">
     <?php endif; ?>
-    <title><?= $title ?? 'EcoConnect' ?></title>
+
+    <title><?= $title?></title>
 </head>
 <body>
     <div class="app-layout">
         <?php require __DIR__ . '/../components/sidebar.php';?>
+        
+        <main class="app-content">
+            <?php if (!empty($page)) require $page; ?>
+        </main>
 
         <?php require __DIR__ . '/../components/bottom-nav.php';?>
 
-        <?php require __DIR__ . '/../pages/Home.php';?>
-
     </div>
+
+    <?php if (!empty($pageJs)): ?>
+    <script src="<?= BASE_URL ?>/assets/js/<?= $pageJs ?>.js"></script>
+    <?php endif; ?>
+    
 </body>
 </html>
