@@ -33,7 +33,6 @@
             $this->estado = $estado;
             $this->foto_perfil = $foto_perfil;
 
-            $this->data_cadastro = date('Y-m-d H:i:s');
         }
 
         public static function fromDatabase(array $dados): Usuario {
@@ -53,10 +52,6 @@
 
         return $usuario;
     }
-
-        public function setId(int $id): void {
-            $this->id = $id;
-        }
 
         public function getId(): ?int {
             return $this->id;
