@@ -3,10 +3,12 @@ $paginaAtual = $paginaAtual ?? '';
 
 $navItems = [
     'home' => 'Home',
-    'item' => 'Itens',
-    'publicar' => 'Publicar',
     'coleta' => 'Coleta',
+    'publicar' => 'Publicar',
+    'ecoponto' => 'Ecoponto',
     'perfil' => 'Perfil',
+
+    
 ];
 ?>
 
