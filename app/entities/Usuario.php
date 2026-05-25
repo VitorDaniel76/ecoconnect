@@ -12,7 +12,7 @@
         private ?string $cidade;
         private ?string $estado;
 
-        private string $data_cadastro;
+        private ?string $data_cadastro = null;
 
         public function __construct(
             string $nome,
@@ -83,6 +83,10 @@
 
         public function getFotoPerfil(): ?string {
             return $this->foto_perfil;
+        }
+
+        public function getDataCadastro(): ?string {
+            return $this->data_cadastro;
         }
     }
 ?>

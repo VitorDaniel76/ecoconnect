@@ -9,13 +9,13 @@
 
         private string $descricao;
         private string $estado_conservacao;
-        private ?string $status_item;
 
         private ?string $endereco;
         private string $cidade;
         private string $estado;
 
-        private string $data_publicacao;
+        private ?string $status_item = null;
+        private ?string $data_publicacao =null;
 
         public function __construct(
             int $id_usuario,
@@ -25,7 +25,6 @@
             string $estado_conservacao,
             string $cidade,
             string $estado,
-            ?string $status_item = 'disponivel',
             ?string $endereco = null
 
         ){
@@ -38,7 +37,6 @@
             $this->estado_conservacao = $estado_conservacao;
             $this->cidade = $cidade;
             $this->estado = $estado;
-            $this->status_item = $status_item;
             $this->endereco = $endereco;
         }
 
@@ -52,11 +50,11 @@
                 $dados['estado_conservacao'],
                 $dados['cidade'],
                 $dados['estado'],
-                $dados['status_item'] ?? 'disponivel',
                 $dados['endereco'] ?? null
             );
 
             $item->id = $dados['id_item'];
+            $item->status_item = $dados['status_item'];
             $item->data_publicacao = $dados['data_publicacao'];
 
             return $item;
@@ -98,6 +96,10 @@
         
         public function getEndereco(): ?string{
             return $this->endereco;
+        }
+
+        public function getDataPublicacao(): ?string{
+            return $this->data_publicacao;
         }
     }
 ?>
