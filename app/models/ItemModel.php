@@ -158,7 +158,35 @@
             echo "Erro: " . $e->getMessage();
             return [];
         }
+    }
 
+    public function buscarItensPorNome(string $nome, int $limit = 10, int $offset = 0): array{
+        try{
+
+            $sql = "SELECT * FROM item WHERE titulo LIKE ? ORDER BY id_item DESC LIMIT ? OFFSET ?";
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->bindValue(1, "%nome%", PDO::PARAM_STR);
+            $stmt->bindValue(2, $limit, PDO::PARAM_INT);
+            $stmt->bindValue(3, $offset, PDO::FETCH_ASSOC);
+
+            $stmt->execute();
+
+            $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $itens = [];
+
+            foreach ($dados as $linha){
+                $itens[] = Item::fromDatabase($linha);
+            }
+
+            return $itens;
+
+        }catch(PDOException $e){
+            echo "Erro" . $e->getMessage();
+            return [];
+        }
     }
 }
 
