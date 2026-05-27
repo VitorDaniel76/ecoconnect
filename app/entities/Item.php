@@ -17,6 +17,8 @@
         private ?string $status_item = null;
         private ?string $data_publicacao =null;
 
+        private array $imagens = [];
+
         public function __construct(
             int $id_usuario,
             int $id_categoria,
@@ -100,6 +102,14 @@
 
         public function getDataPublicacao(): ?string{
             return $this->data_publicacao;
+        }
+
+        public function setImagens(array $imagens): void{
+            $this->imagens = $imagens;
+        }
+
+        public function getImagens(): array{
+            return $this->imagens;
         }
     }
 ?>

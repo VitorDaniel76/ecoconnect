@@ -16,7 +16,7 @@
         public static function fromDatabase(array $dados): ImagemItem{
             $imagem = new ImagemItem(
                 $dados['id_item'],
-                $dados['url']
+                $dados['url_imagem']
             );
 
             $imagem->id = $dados['id_imagem'];

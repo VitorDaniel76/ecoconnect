@@ -3,6 +3,8 @@
     require_once __DIR__ . '/../app/controllers/LoginController.php';
     require_once __DIR__ . '/../app/controllers/CadastroController.php';
     require_once __DIR__ . '/../app/controllers/HomeController.php';
+    require_once __DIR__ . '/../app/controllers/PublicarController.php';
+
     $route = $_GET['route'] ?? 'telaLogin';
 
     switch ($route) {
@@ -35,6 +37,11 @@
         case 'home':
             $controller = new HomeController();
             $controller->home();
+            break;
+        
+        case 'publicar':
+            $controller = new PublicarController();
+            $controller->publicar();
             break;
 
         default:

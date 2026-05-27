@@ -3,16 +3,20 @@
     require_once __DIR__ . '/../../config/Database.php';
     require_once __DIR__ . '/../entities/Item.php';
     require_once __DIR__ . '/../entities/Categoria.php';
+    require_once __DIR__ .  '/../models/ImagemItemModel.php';
 
     class ItemModel{
 
     private PDO $conn;
+    private ImagemItemModel $imagemModel;
 
     public function __construct()
     {
         $database = new Database();
 
         $this->conn = $database->conectar();
+
+        $this->imagemModel = new ImagemItemModel();
     }
 
     public function inserirItem(Item $item): ?int{
@@ -58,7 +62,13 @@
             $itens = [];
 
             foreach ($dados as $linha){
-                $itens[] = Item::fromDatabase($linha);
+                $item = Item::fromDatabase($linha);
+
+                $item->setImagens(
+                    $this->imagemModel->buscarPorItemId($item->getId())
+                );
+
+                $itens[] = $item;
             }
 
             return $itens;
@@ -72,7 +82,7 @@
 
     public function carregarItemID(int $id): ?Item {
         try{
-            $sql = "SELECT FROM item WHERE id_item = ?";
+            $sql = "SELECT * FROM item WHERE id_item = ?";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -84,7 +94,13 @@
                 return null;
             }
 
-            return Item::fromDatabase($dados);
+            $item = Item::fromDatabase($dados);
+
+            $item->setImagens(
+                $this->imagemModel->buscarPorItemId($item->getId())
+            );
+
+            return $item;
 
         }catch(PDOException $e){
             echo "Erro" . $e->getMessage();
@@ -149,7 +165,13 @@
             $itens = [];
 
             foreach ($dados as $linha){
-                $itens[] = Item::fromDatabase($linha);
+                $item = Item::fromDatabase($linha);
+
+                $item->setImagens(
+                    $this->imagemModel->buscarPorItemId($item->getId())
+                );
+
+                $itens [] = $item;
             }
 
             return $itens;
@@ -167,9 +189,9 @@
 
             $stmt = $this->conn->prepare($sql);
 
-            $stmt->bindValue(1, "%nome%", PDO::PARAM_STR);
+            $stmt->bindValue(1, "%$nome%", PDO::PARAM_STR);
             $stmt->bindValue(2, $limit, PDO::PARAM_INT);
-            $stmt->bindValue(3, $offset, PDO::FETCH_ASSOC);
+            $stmt->bindValue(3, $offset, PDO::PARAM_INT);
 
             $stmt->execute();
 
@@ -178,7 +200,13 @@
             $itens = [];
 
             foreach ($dados as $linha){
-                $itens[] = Item::fromDatabase($linha);
+                $item = Item::fromDatabase($linha);
+
+                $item->setImagens(
+                    $this->imagemModel->buscarPorItemId($item->getId())
+                    );
+
+                    $itens[] = $item;
             }
 
             return $itens;

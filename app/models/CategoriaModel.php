@@ -38,6 +38,27 @@
             }
         }
 
+        public function buscarPorId(int $id): ?Categoria{
+            try {
+                $sql = "SELECT * FROM categoria WHERE id_categoria = ?";
+
+                $stmt = $this->conn->prepare($sql);
+                $stmt->execute([$id]);
+
+                $dados = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if (!$dados) {
+                    return null;
+                }
+
+                return Categoria::fromDatabase($dados);
+
+            }catch (PDOException $e) {
+                error_log("Erro buscar categoria: " . $e->getMessage());
+                return null;
+            }
+        }
+
     }
 
 ?>
