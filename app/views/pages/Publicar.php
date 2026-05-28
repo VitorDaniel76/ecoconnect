@@ -1,4 +1,7 @@
 <section class="publicar-section">
+
+    <h2>Novo Item</h2>
+    
     <form class="publicar-form" action="<?= BASE_URL ?>/publicar" method="POST" enctype="multipart/form-data">
         <div class= "input-group">
             <label>Imagem</label>

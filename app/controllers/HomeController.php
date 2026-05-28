@@ -27,9 +27,13 @@
                 $itens = $itemModel->carregarItens();
             }
 
+            $title = 'Home';
+            $pageCss = 'home';
+            $pageJs = 'home';
             $page = __DIR__ . '/../views/pages/Home.php';
 
             $paginaAtual = 'home';
+            $categoriaAtual = $idCategoria;
 
             require __DIR__ . '/../views/layouts/app-layout.php';
         }

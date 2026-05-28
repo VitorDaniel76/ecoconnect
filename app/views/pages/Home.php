@@ -1,4 +1,5 @@
 <section class="home-section">
+    <h2>Itens</h2>
     <form action="<?= BASE_URL ?>/home" method="GET" class="busca-form">
         <div class="busca-grupo">
             <input type="text" name="busca" placeholder="Buscar itens...">
@@ -10,13 +11,18 @@
 
     <section class="categorias-section">
 
-        <?php foreach($categorias as $categoria): ?>
-
-            <a href="<?= BASE_URL ?>/home?categoria=<?= $categoria->getId() ?>" class="categoria-btn">
-            <?= $categoria->getNome() ?>
+        <h2>Categorias</h2>
+        <div class="lista-categorias">
+            <a href="<?= BASE_URL?>/home" class="categoria-btn<?=  empty($categoriaAtual) ? '-ativo' : ''?>">
+                Todas
             </a>
+            <?php foreach($categorias as $categoria): ?>
+                    <a href="<?= BASE_URL ?>/home?categoria=<?= $categoria->getId() ?>" class="categoria-btn<?= $categoriaAtual == $categoria->getId() ? '-ativo' : '' ?>">
+                    <?= $categoria->getNome() ?>
+                    </a>
 
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
 
     </section>
 
@@ -36,15 +42,17 @@
             ?>
             <article class="item-card">
             
-                <img src="<?= $imagem ? $imagem->getUrlImagem() : BASE_URL . '/assets/default.jpg' ?>" alt="<?= $item->getTitulo() ?>">
+                <img class="item-card-imagem" src="<?= $imagem ? $imagem->getUrlImagem() : BASE_URL . '/assets/default.jpg' ?>" alt="<?= $item->getTitulo() ?>">
                 
                 <div class="item-info">
                 
                     <h2 class="item-titulo"> <?= $item->getTitulo() ?></h2>
 
-                    <p class="item-categoria"> <?= $nomeCategoria ?>></p>
+                    <p class="item-descricao"><?= $item->getDescricao()?></p>
 
-                    <p class="item-localizacao"> <?=  $item->getCidade() ?> - <?= $item->getEstado() ?></p>
+                    <p class="item-categoria">Categoria: <?= $nomeCategoria ?></p>
+
+                    <p class="item-localizacao"><img src="<?= BASE_URL?>/assets/images/location-icon.png ?>" alt=""> <?=  $item->getCidade() ?> - <?= $item->getEstado() ?></p>
                 </div>
 
             </article>
