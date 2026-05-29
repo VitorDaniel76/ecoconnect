@@ -216,6 +216,48 @@
             return [];
         }
     }
+
+    public function contarItens(): int {
+        try {
+            $sql = "SELECT COUNT(*) as total FROM item";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+
+            return (int) $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+            return 0;
+        }
+    }
+
+    public function contarItensPorCategoria(int $idCategoria): int {
+        try {
+            $sql = "SELECT COUNT(*) as total FROM item WHERE id_categoria = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([$idCategoria]);
+
+            return (int) $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+            return 0;
+        }
+    }
+
+    public function contarItensPorNome(string $nome): int {
+        try {
+            $sql = "SELECT COUNT(*) as total FROM item WHERE titulo LIKE ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(["%$nome%"]);
+
+            return (int) $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+            return 0;
+        }
+    }
 }
 
 ?>

@@ -15,16 +15,38 @@
             $itemModel = new ItemModel();
             $categoriaModel = new CategoriaModel();
 
-            $busca = $_GET['busca'] ?? '';
-            $idCategoria = $_GET['categoria'] ?? null;
+            $busca = trim($_GET['busca'] ?? '');
             $categorias = $categoriaModel->carregarCategorias();
+            $idCategoria = isset($_GET['categoria']) ? (int) $_GET['categoria'] : null;
+
+            $pagina = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+            $pagina = max(1, $pagina);
+
+            $paginaAtualNumero = $pagina;
+            $limite = 10;
+
+            $offset = ($pagina -1) * $limite;
 
             if (!empty($busca)){
-                $itens = $itemModel->buscarItensPorNome($busca);
+                $itens = $itemModel->buscarItensPorNome(
+                    $busca,
+                    $limite,
+                    $offset
+                );
+                $totalItens = $itemModel->contarItensPorNome($busca);
             }elseif($idCategoria){
-                $itens = $itemModel->carregarItensPorCategoria($idCategoria);
+                $itens = $itemModel->carregarItensPorCategoria(
+                    $idCategoria,
+                    $limite,
+                    $offset
+                );
+                $totalItens = $itemModel->contarItensPorCategoria($idCategoria);
             }else{
-                $itens = $itemModel->carregarItens();
+                $itens = $itemModel->carregarItens(
+                    $limite,
+                    $offset
+                );
+                $totalItens = $itemModel->contarItens();
             }
 
             $title = 'Home';
@@ -34,6 +56,7 @@
 
             $paginaAtual = 'home';
             $categoriaAtual = $idCategoria;
+            $totalPaginas = ceil($totalItens / $limite);
 
             require __DIR__ . '/../views/layouts/app-layout.php';
         }

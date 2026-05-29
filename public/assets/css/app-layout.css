@@ -8,29 +8,28 @@
 .app-content{
     flex: 1;
     padding: 1rem;
-    padding-bottom: 7rem;
+    padding-bottom: 5rem;
     overflow-y: auto;
 }
 
 .bottom-nav{
-    height: 6rem;
-
+    height: 4rem;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-}
-.sidebar-nav{
-    display: none;
+    gap: .3rem;
 }
 
 .nav-item{
     flex: 1;
     min-width: 0;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: .15rem;
+    padding: 0 .2rem;
 
 }
 
@@ -41,10 +40,90 @@
 
 .nav-item span{
     color: var(--clr-Text-Dark);
+    font-size: .8rem;
+    line-height: 1;
 }
 
 .nav-item.ativo span{
     color: #358D55;
+}
+
+.sidebar-nav{
+    width: 15rem;
+    min-height: 100vh;
+    padding: 1.5rem 1rem;
+
+    display: none;
+    flex-direction: column;
+
+    background: var(--clr-White);
+    border-right: 1px solid #eaeaea;
+}
+
+.sidebar-logo{
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+
+    margin-bottom: 2rem;
+}
+
+.sidebar-logo img{
+    width: 2rem;
+    height: 2rem;
+}
+
+.sidebar logo h2{
+    font-size: 1.2rem;
+    color: var(--clr-Green-Primary);
+}
+
+.sidebar-links{
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+
+    flex: 1;
+}
+
+.sidebar-nav-item{
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+
+    padding: .8rem 1rem;;
+    border-radius: .8rem;
+
+    color: var(--clr-Text-Dark);
+
+    transition: background .2s ease;
+}
+
+.sidebar-nav-item:hover{
+    background : #f5f5f5;
+}
+
+.sidebar-nav-item.ativo{
+    background: var(--clr-Green-Soft);
+    color: var(--clr-Green-Primary);
+    font-weight: var(--fw-sbold);
+}
+
+.sidebar-nav-item img{
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.sidebar-logout{
+    margin-top: auto;
+
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+
+    padding: .8rem 1rem;
+
+    border-radius: .8rem;
 }
 
 
@@ -59,6 +138,5 @@
     }
     .sidebar-nav{
         display: flex;
-        flex-direction: column;
     }
 }
