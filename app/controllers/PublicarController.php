@@ -1,14 +1,13 @@
 <?php 
 
-    
-    require_once __DIR__ . '/../models/ItemModel.php';
-    require_once __DIR__ . '/../models/CategoriaModel.php';
-    require_once __DIR__ . '/../models/ImagemItemModel.php';
+require_once __DIR__ . '/../models/ItemModel.php';
+require_once __DIR__ . '/../models/CategoriaModel.php';
+require_once __DIR__ . '/../models/ImagemItemModel.php';
 
-    require_once __DIR__ . '/../entities/Item.php';
-    require_once __DIR__ . '/../entities/ImagemItem.php';
+require_once __DIR__ . '/../entities/Item.php';
+require_once __DIR__ . '/../entities/ImagemItem.php';
 
-    class PublicarController{
+class PublicarController{
 
     public function publicar(){
         session_start();
@@ -21,7 +20,7 @@
         $estados = require __DIR__ . '/../../config/estados.php';
 
         $itemModel = new ItemModel();
-        $categoriaModel= new CategoriaModel;
+        $categoriaModel = new CategoriaModel();
         $imagemModel = new ImagemItemModel();
 
         $categorias = $categoriaModel->carregarCategorias();
@@ -33,46 +32,34 @@
                 empty($_POST['titulo']) ||
                 empty($_POST['descricao']) ||
                 empty($_POST['categoria']) ||
-                empty($_POST['estado_conservacao']) ||
+                empty($_POST['estado-conservacao']) ||
                 empty($_POST['estado']) ||
                 empty($_POST['cidade']) ||
-                empty($_FILES['imagem']['name'][0])
+                empty($_FILES['imagens']['name'][0])
             ){
                 die("Preencha todos os campos obrigatórios");
             }
-            //validar categoria
-            $categoriaExiste = $categoriaModel->buscarPorId($_POST['categoria']);
+            //limite imagens 
 
+            if (count($_FILES['imagens']['name']) > 4) {
+                die("Máximo de 4 imagens permitidas");
+            }
+
+
+            // validar categoria
+            $categoriaExiste = $categoriaModel->buscarPorId($_POST['categoria']);
             if(!$categoriaExiste){
                 die("Categoria inválida");
             }
-            //validar estado
+
+            // validar estado
             if (!isset($estados[$_POST['estado']])){
                 die("Estado inválido.");
             }
 
-            //validar upload
-
-            if($_FILES['imagem']['error'] !== UPLOAD_ERR_OK){
-                die("Erro no upload da imagem.");
-            }
-
             $tiposPermitidos = ['image/jpeg', 'image/png', 'image/webp'];
 
-            if (!in_array($_FILES['imagem']['type'], $tiposPermitidos)) {
-                die("Formato de imagem inválido.");
-            }
-
-            $arquivo = $_FILES['imagem'];
-
-            $nomeArquivo = time() . '_' . $arquivo['name'];
-
-            move_uploaded_file(
-                $arquivo['tmp_name'],
-                __DIR__ . '/../../public/uploads/' . $nomeArquivo
-            );
-
-            $urlImagem = BASE_URL . '/uploads/' . $nomeArquivo;
+            $imagens = $_FILES['imagens'];
 
             $item = new Item(
                 $_SESSION['id_usuario'],
@@ -87,12 +74,33 @@
 
             $idItem = $itemModel->inserirItem($item);
 
-            $imagem = new ImagemItem(
-                $idItem,
-                $urlImagem
-            );
+            // LOOP DE IMAGENS
+            foreach ($imagens['tmp_name'] as $i => $tmpName) {
 
-            $imagemModel->inserirImagem($imagem);
+                if ($imagens['error'][$i] !== UPLOAD_ERR_OK) {
+                    continue;
+                }
+
+                if (!in_array($imagens['type'][$i], $tiposPermitidos)) {
+                    continue;
+                }
+
+                $nomeArquivo = uniqid() . '_' . $imagens['name'][$i];
+
+                move_uploaded_file(
+                    $tmpName,
+                    __DIR__ . '/../../public/uploads/' . $nomeArquivo
+                );
+
+                $urlImagem = BASE_URL . '/uploads/' . $nomeArquivo;
+
+                $imagem = new ImagemItem(
+                    $idItem,
+                    $urlImagem
+                );
+
+                $imagemModel->inserirImagem($imagem);
+            }
 
             header("Location: " . BASE_URL . "/home");
             exit;
@@ -106,7 +114,4 @@
 
         require __DIR__ . '/../views/layouts/app-layout.php';
     }
-    }
-
-
-?>
+}

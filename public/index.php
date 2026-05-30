@@ -47,7 +47,7 @@
 
         case 'item':
             $controller = new ItemController();
-            $controller->detalhe();
+            $controller->item();
             break;
 
         default:

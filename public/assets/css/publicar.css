@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1rem;
     gap: 1.2rem;
 }
 
@@ -67,6 +68,21 @@
 .error{
     font-size: .8rem;
     color: red;
+}
+
+.preview-imagens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.preview-imagens img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
 }
 
 @media (min-width: 768px){
