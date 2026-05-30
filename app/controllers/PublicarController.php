@@ -36,7 +36,7 @@
                 empty($_POST['estado_conservacao']) ||
                 empty($_POST['estado']) ||
                 empty($_POST['cidade']) ||
-                empty($_FILES['imagem'])
+                empty($_FILES['imagem']['name'][0])
             ){
                 die("Preencha todos os campos obrigatórios");
             }

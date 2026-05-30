@@ -42,25 +42,24 @@
                     }
                 }
             ?>
-            <article class="item-card">
             
-                <img class="item-card-imagem" src="<?= $imagem ? $imagem->getUrlImagem() : BASE_URL . '/assets/default.jpg' ?>" alt="<?= $item->getTitulo() ?>">
-                
-                <div class="item-info">
-                
-                    <h2 class="item-titulo"> <?= $item->getTitulo() ?></h2>
+                    <a href="<?= BASE_URL ?>/item?id=<?= $item->getId() ?>" class="item-card">
+                        <img class="item-card-imagem" src="<?= $imagem ? $imagem->getUrlImagem() : BASE_URL . '/assets/default.jpg' ?>" alt="<?= $item->getTitulo() ?>">
+                        
+                        <div class="item-info">
+                        
+                            <h2 class="item-titulo"> <?= $item->getTitulo() ?></h2>
 
-                    <p class="item-categoria">Categoria: <?= $nomeCategoria ?></p>
+                            <p class="item-categoria">Categoria: <?= $nomeCategoria ?></p>
 
-                    <p class="item-condicao">Condição: <?= $item->getEstadoConservacao()?></p>
+                            <p class="item-condicao">Condição: <?= $item->getEstadoConservacao()?></p>
 
-                    <p class="item-descricao"><?= $item->getDescricao()?></p>
+                            <p class="item-descricao"><?= $item->getDescricao()?></p>
 
-                    <p class="item-localizacao"><img src="<?= BASE_URL?>/assets/images/location-icon.png ?>" alt=""> <?=  $item->getCidade() ?> - <?= $item->getEstado() ?></p>
-                </div>
-
-            </article>
-
+                            <p class="item-localizacao"><img src="<?= BASE_URL?>/assets/images/location-icon.png ?>" alt=""> <?=  $item->getCidade() ?> - <?= $item->getEstado() ?></p>
+                        </div>
+                    </a>
+            
         <?php endforeach; ?>
 
     </section>

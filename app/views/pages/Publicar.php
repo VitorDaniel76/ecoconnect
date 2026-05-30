@@ -6,7 +6,7 @@
         <div class= "input-group foto">
             <label>Foto do Item</label>
             <label class="foto-area">
-                <input type="file" name="imagem" required>
+                <input type="file" name="imagem[]" required>
                 <img src="<?= BASE_URL ?>/assets/images/camera-icon.png" alt="">
                 <span>Adicionar Foto</span>
             </label>
