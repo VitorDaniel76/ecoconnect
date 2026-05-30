@@ -46,7 +46,7 @@
         }
     }
     
-    public function carregarItens(int $limit = 10, int $offset = 0): array{
+    public function carregarItens(int $limit = 8, int $offset = 0): array{
 
         try{
             $sql = "SELECT * FROM item Order BY id_item DESC LIMIT ? OFFSET ?";
@@ -146,7 +146,7 @@
         }
     }
 
-    public function carregarItensPorCategoria(int $idCategoria, int $limit = 10, int $offset = 0): array{
+    public function carregarItensPorCategoria(int $idCategoria, int $limit = 8, int $offset = 0): array{
 
         try{
 
@@ -182,7 +182,7 @@
         }
     }
 
-    public function buscarItensPorNome(string $nome, int $limit = 10, int $offset = 0): array{
+    public function buscarItensPorNome(string $nome, int $limit = 8, int $offset = 0): array{
         try{
 
             $sql = "SELECT * FROM item WHERE titulo LIKE ? ORDER BY id_item DESC LIMIT ? OFFSET ?";

@@ -8,12 +8,11 @@
 .app-content{
     flex: 1;
     padding: 1rem;
-    padding-bottom: 5rem;
     overflow-y: auto;
 }
 
 .bottom-nav{
-    height: 4rem;
+    height: 5rem;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
     display: flex;
@@ -73,7 +72,7 @@
     height: 2rem;
 }
 
-.sidebar logo h2{
+.sidebar-logo h2{
     font-size: 1.2rem;
     color: var(--clr-Green-Primary);
 }
@@ -100,7 +99,12 @@
 }
 
 .sidebar-nav-item:hover{
-    background : #f5f5f5;
+    background : var(--clr-Green-Soft);
+}
+
+.sidebar-nav-item:active{
+    background: var(--clr-Green-Soft);
+    transform: scale(0.98);
 }
 
 .sidebar-nav-item.ativo{
@@ -108,6 +112,7 @@
     color: var(--clr-Green-Primary);
     font-weight: var(--fw-sbold);
 }
+
 
 .sidebar-nav-item img{
     width: 1.2rem;
@@ -124,6 +129,23 @@
     padding: .8rem 1rem;
 
     border-radius: .8rem;
+    color: var(--clr-Text-Dark);
+
+    transition: background .2s ease;
+}
+
+.sidebar-logout img{
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.sidebar-logout:hover{
+    background : var(--clr-Green-Soft);
+}
+
+.sidebar-logout:active{
+    background: var(--clr-Green-Soft);
+    transform: scale(0.98);
 }
 
 

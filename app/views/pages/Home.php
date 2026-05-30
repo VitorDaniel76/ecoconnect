@@ -1,13 +1,15 @@
 <section class="home-section">
-    <h2>Itens</h2>
-    <form action="<?= BASE_URL ?>/home" method="GET" class="busca-form">
-        <div class="busca-grupo">
-            <input type="text" name="busca" placeholder="Buscar itens..." value="<?= htmlspecialchars($_GET['busca'] ?? '') ?>">
-            <button type="submit">
-                <img src="<?= BASE_URL ?>/assets/images/pesquisar-icon.png" alt="Buscar">
-            </button>
-        </div>
-    </form>
+    <div class="home-topo">
+        <h2>Itens</h2>
+        <form action="<?= BASE_URL ?>/home" method="GET" class="busca-form">
+            <div class="busca-grupo">
+                <input type="text" name="busca" placeholder="Buscar itens..." value="<?= htmlspecialchars($_GET['busca'] ?? '') ?>">
+                <button type="submit">
+                    <img src="<?= BASE_URL ?>/assets/images/pesquisar-icon.png" alt="Buscar">
+                </button>
+            </div>
+        </form>
+    </div>
 
     <section class="categorias-section">
 

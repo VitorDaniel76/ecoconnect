@@ -47,18 +47,26 @@ h2{
 
 input,
 button,
-textarea{
+textarea,
+select{
     font: inherit;
     border: 2px solid var(--clr-Border);
     outline: none;
     box-shadow: none;
+    background: var(--clr-White);
+    border-radius: .6rem;
+    height: 2.5rem;
 }
 
+textarea{
+    height: 5rem;
+}
 a{
     text-decoration: none;
 }
 
-input:focus{
+input:focus,
+textarea:focus{
     border-color: var(--clr-Green-Primary);
 }
 

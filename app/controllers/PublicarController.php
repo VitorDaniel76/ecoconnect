@@ -79,7 +79,7 @@
                 $_POST['categoria'],
                 $_POST['titulo'],
                 $_POST['descricao'],
-                $_POST['estado_conservacao'],
+                $_POST['estado-conservacao'],
                 $_POST['cidade'],
                 $_POST['estado'],
                 $_POST['endereco'] ?? null
@@ -98,6 +98,8 @@
             exit;
         }
 
+        $pageCss = 'publicar';
+        $pageJs = 'publicar';
         $page = __DIR__ . '/../views/pages/Publicar.php';
 
         $paginaAtual = 'publicar';

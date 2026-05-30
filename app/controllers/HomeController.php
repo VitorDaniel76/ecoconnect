@@ -23,7 +23,7 @@
             $pagina = max(1, $pagina);
 
             $paginaAtualNumero = $pagina;
-            $limite = 10;
+            $limite = 8;
 
             $offset = ($pagina -1) * $limite;
 
