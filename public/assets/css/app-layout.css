@@ -147,6 +147,20 @@
     transform: scale(0.98);
 }
 
+.chat-float {
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
+
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    text-decoration: none;
+
+    z-index: 999;
+}
 
 @media(min-width: 768px){
     .app-layout{
@@ -159,6 +173,9 @@
     }
     .sidebar-nav{
         display: flex;
+    }
+    .chat-float{
+        display: none;
     }
 
 }

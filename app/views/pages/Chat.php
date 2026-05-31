@@ -1,6 +1,5 @@
 <div class="chat-container">
 
-    <!-- HEADER DO CHAT -->
     <div class="chat-header">
 
         <a href="<?= BASE_URL ?>/mensagens" class="btn-voltar">
@@ -17,7 +16,7 @@
 
     </div>
 
-    <!-- MENSAGENS -->
+
     <div class="chat-messages">
 
         <?php if (!empty($mensagens)): ?>
@@ -46,7 +45,6 @@
 
     </div>
 
-    <!-- FORM ENVIAR -->
     <form class="chat-input" action="<?= BASE_URL ?>/mensagens/enviar" method="POST">
 
         <input type="hidden" name="id_conversa" value="<?= $idConversa ?>">

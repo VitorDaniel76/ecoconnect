@@ -20,6 +20,9 @@
     <title><?= $title?></title>
 </head>
 <body>
+    <a href="<?= BASE_URL ?>/mensagens" class="chat-float">
+        <img src="<?= BASE_URL ?>/assets/images/mensagens-icon-ativo.png" alt="">
+    </a>
     <div class="app-layout">
         <?php require __DIR__ . '/../components/sidebar.php';?>
         
