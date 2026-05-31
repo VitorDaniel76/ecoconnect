@@ -6,6 +6,7 @@
     require_once __DIR__ . '/../app/controllers/PublicarController.php';
     require_once __DIR__ . '/../app/controllers/ItemController.php';
     require_once __DIR__ . '/../app/controllers/ColetaController.php';
+    require_once __DIR__ . '/../app/controllers/ConversaController.php';
 
     $route = $_GET['route'] ?? 'telaLogin';
 
@@ -56,6 +57,25 @@
             $controller->cadastrarColeta();
             break;
         
+        case 'mensagens':
+            $controller = new ConversaController();
+            $controller->mensagens();
+            break;
+        
+        case 'conversas/iniciar':
+        $controller = new ConversaController();
+        $controller->iniciar();
+        break;
+
+        case 'mensagens/abrir':
+        $controller = new ConversaController();
+        $controller->abrir();
+        break;
+
+        case 'mensagens/enviar':
+        $controller = new ConversaController();
+        $controller->enviar();
+        break;
 
         default:
             echo "Rota não encontrada";

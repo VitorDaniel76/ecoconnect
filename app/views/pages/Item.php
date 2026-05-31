@@ -61,7 +61,7 @@
                     <p>Membro desde <?= $usuarioData?></p>
                 </div>
             </div>
-            <button class="btn-mensagem">Enviar Mensagem</button>
+            <a class="btn-mensagem" href="<?= BASE_URL ?>/conversas/iniciar?id=<?= $item->getIdUsuario() ?>">Enviar Mensagem</a>
         </div>
 
     </div>

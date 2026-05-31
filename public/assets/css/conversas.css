@@ -1,0 +1,84 @@
+.mensagens-container{
+    display: flex;
+    max-width: 900px;
+    flex-direction: column;
+    padding: 2rem;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    border-radius: 1rem;
+}
+
+.mensagens-container h2{
+    color: var(--clr-Green-Primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+}
+
+.sem-chats{
+    color: #666;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.chat-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem;
+
+    margin-bottom: 1.2rem;
+
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 1.2rem;
+
+    text-decoration: none;
+    color: inherit;
+
+    transition: .2s;
+}
+
+
+.chat-item:hover{
+    border-color: var(--clr-Green-Hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.chat-info{
+    flex: 1;
+    min-width: 0;
+}
+
+.chat-nome{
+    font-weight: 600;
+    font-size: 1rem;
+    color: #222;
+
+    margin-bottom: .2rem;
+}
+
+.chat-ultima-msg{
+    color: #666;
+    font-size: .9rem;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-data{
+    margin-left: 1rem;
+
+    color: #999;
+    font-size: .8rem;
+
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px){
+    .mensagens-container{
+        margin-left: 2rem;
+    }
+}

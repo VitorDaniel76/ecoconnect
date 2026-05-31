@@ -1,16 +1,13 @@
-<?php
-$paginaAtual = $paginaAtual ?? '';
+<?php $paginaAtual = $paginaAtual ?? '';?>
 
-$navItems = [
+<?php $navItems = [
     'home' => 'Home',
     'coleta' => 'Coleta',
     'publicar' => 'Publicar',
     'ecoponto' => 'Ecoponto',
     'perfil' => 'Perfil',
-
-    
-];
-?>
+    'mensagens' => 'Mensagem'
+];?>
 
 <nav class="sidebar-nav">
     <div class="sidebar-logo">

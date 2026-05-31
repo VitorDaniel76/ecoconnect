@@ -133,7 +133,8 @@
 }
 
 .btn-mensagem{
-    align-self: stretch;
+    align-self: center;
+    border-radius: .5rem;
     color: var(--clr-White);
     border-color: var(--clr-Green-Primary);
     background-color: var(--clr-Green-Primary);
