@@ -47,7 +47,7 @@
 }
 
 .sidebar-nav{
-    width: 15rem;
+    width: 16rem;
     min-height: 100vh;
     padding: 1.5rem 1rem;
 
@@ -79,7 +79,7 @@
 .sidebar-links{
     display: flex;
     flex-direction: column;
-    gap: .4rem;
+    gap: 1.5rem;
 
     flex: 1;
 }
@@ -160,4 +160,5 @@
     .sidebar-nav{
         display: flex;
     }
+
 }

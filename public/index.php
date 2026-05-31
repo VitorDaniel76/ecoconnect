@@ -5,6 +5,7 @@
     require_once __DIR__ . '/../app/controllers/HomeController.php';
     require_once __DIR__ . '/../app/controllers/PublicarController.php';
     require_once __DIR__ . '/../app/controllers/ItemController.php';
+    require_once __DIR__ . '/../app/controllers/ColetaController.php';
 
     $route = $_GET['route'] ?? 'telaLogin';
 
@@ -49,6 +50,12 @@
             $controller = new ItemController();
             $controller->item();
             break;
+
+        case 'coleta':
+            $controller = new ColetaController();
+            $controller->cadastrarColeta();
+            break;
+        
 
         default:
             echo "Rota não encontrada";
