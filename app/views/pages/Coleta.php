@@ -3,7 +3,7 @@
         <h2>Agendar Coleta</h2>
         <p>Preencha os dados para agendar a coleta de recicláveis</p>
     </div>
-    <form action="<?= BASE_URL ?>/coleta" method="POST">
+    <form action="<?= BASE_URL ?>/coleta" method="POST" novalidate>
 
             <p class="texto">Tipo de item</p>
             <div class="materiais">
@@ -29,17 +29,20 @@
                         </div>
                     </label>
                 <?php endforeach; ?>
+                <div class="material-erro erro"></div>
             </div>
 
                 <div class="campo">
                     <label class="texto" for="quantidade">Quantidade</label>
                     <input type="text" id="quantidade" name="quantidade" placeholder="Ex: 2 sacos, 5kg" required>
+                    <p class="quantidade-erro erro"></p>
                 </div>
 
                 <div class="data-coleta">
                     <div class="campo">
                         <label class="texto" for="data_coleta">Data da coleta</label>
                         <input type="date" id="data_coleta" name="data_coleta" placeholder="Selecione a data" required>
+                        <p class="data-erro erro"></p>
                     </div>
 
                     <div class="campo">
@@ -57,12 +60,14 @@
                             </label>
 
                         </div>
+                        <p class="periodo-erro erro"></p>
                     </div>
                 </div>
 
                 <div class="campo">
                     <label class="texto" for="endereco">Endereço</label>
                     <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço" required>
+                    <p class="endereco-erro erro"></p>
                 </div>
 
                 <div class="campo">
